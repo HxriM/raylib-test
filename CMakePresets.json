@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "YES",
+        "CMAKE_CXX_STANDARD": "20"
+      }
+    },
+    {
+      "name": "windows-debug",
+      "inherits": "windows-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "hidden": false
+    },
+    {
+      "name": "windows-release",
+      "inherits": "windows-base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "hidden": false
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-debug",
+      "configurePreset": "windows-debug",
+      "description": "Build Debug configuration on Windows",
+      "hidden": false
+    },
+    {
+      "name": "windows-release",
+      "configurePreset": "windows-release",
+      "description": "Build Release configuration on Windows",
+      "hidden": false
+    }
+  ]
+}
