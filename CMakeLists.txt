@@ -10,10 +10,6 @@ project(${PROJECT_NAME}
     LANGUAGES CXX
 )
 
-# Set C++ standard
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
-
 # Dependencies
 set(RAYLIB_VERSION 5.5)
 find_package(raylib ${RAYLIB_VERSION} QUIET) # QUIET or REQUIRED
@@ -30,6 +26,9 @@ if (NOT raylib_FOUND) # If there's none, fetch and build raylib
     FetchContent_MakeAvailable(raylib)
   endif()
 endif()
+
+# Emscripten download
+
 
 add_executable(PongGame
     src/main.cpp
